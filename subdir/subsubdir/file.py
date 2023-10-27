@@ -1,3 +1,1 @@
-import path
-
-a = ["really", "really", "really","really",     "really", "really", "really", "really","really",  "really", "long", "line"]
+a = ["really", "really", "really","really",     "really", "really", "really", "really","really",  "really", "long", "line"] # add comment
