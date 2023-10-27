@@ -56,13 +56,13 @@ and it produces expected output. However, if we run it like this:
 ```sh
 git checkout dev
 cd subdir
-DIFF=--diff REVISION=--revision='' make format
+DIFF=--diff REVISION=--revision='a994113583799adf80386ee5519802661a9b2c79...72c491b312e61c9a38d0d66fce1b05c15bc46e60' make format
 ```
 
 we get the error:
 
 ```
-argument PATH: Error: Path(s) 'subsubdir' do not exist in
+argument PATH: Error: Path(s) 'subsubdir' do not exist in 72c491b312e61c9a38d0d66fce1b05c15bc46e60
 ```
 
 This issue comes up for me in CI when using the [commit-range](https://github.com/akaihola/darker/tree/master/.github/actions/commit-range) action to run `darker` using a Makefile.
