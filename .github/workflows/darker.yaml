@@ -25,5 +25,5 @@ jobs:
     - uses: akaihola/darker@v2.1.1
       with:
         options: "--check --diff --isort --color"
-        src: ${{ matrix.dir }}
+        src: "subdir/${{ matrix.dir }}"
         version: "~=2.1.1"
