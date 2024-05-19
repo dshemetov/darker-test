@@ -1,8 +1,6 @@
 # darker-test
 
-This is a repo for demoing an issue with `darker`.
-It has something to do `darker` not being able to find subdirectories when they're referred to with a relative path inside a subdirectory.
-It may be best to just see the example.
+This is a repo for testing CI edge-cases with `darker`.
 
 ## Repo Structure
 
