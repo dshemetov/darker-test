@@ -7,8 +7,12 @@ jobs:
   build:
     runs-on: ubuntu-20.04
     defaults:
-        run:
-          working-directory: subdir
+      run:
+        working-directory: subdir
+    strategy:
+      matrix:
+        include:
+          - dir: "subsubdir"
     steps:
     - uses: actions/checkout@v4
       with:
@@ -18,9 +22,8 @@ jobs:
     - name: Install dependencies
       run: |
         make install
-    - name: Commit Range
-      id: commit-range
-      uses: akaihola/darker/.github/actions/commit-range@1.7.1
-    - name: Format (darker)
-      run: |
-        DIFF="--diff" CHECK="--check" REVISION="--revision='${{ steps.commit-range.outputs.commit-range }}'" make format
+    - uses: akaihola/darker@v2.1.1
+      with:
+        options: "--check --diff --isort --color"
+        src: "subdir/${{ matrix.dir }}"
+        version: "~=2.1.1"

@@ -1,11 +1,14 @@
 REVISION ?= --revision='origin/main...'
 DIFF ?=
 
-venv:
-	python -m venv venv
+uv:
+	curl -LsSf https://astral.sh/uv/install.sh | sh
+
+venv: uv
+	uv venv venv
 
 install: venv
-	venv/bin/pip install -r requirements.txt
+	. venv/bin/activate; uv pip install -r requirements.txt
 
 format:
 	venv/bin/darker $(DIFF) $(REVISION) subsubdir
